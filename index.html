@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trigonometry Blog Post</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Making Sense of Trigonometry</h1>
+    <p>Why are Cos, Sin, Tan, Sec, Cot and Scs the way they are?</p>
+  </header>
+
+  <main class="content">
+    <!-- Section 1: Points, Coordinates, and Distance -->
+    <section id="section1">
+      <h2>1. Points, Coordinates, and the Distance from the Origin</h2>
+      <p>
+        Think of a 2D plane centered at (0,0). Any point (x, y) on this plane can be 
+        infinitely far in any direction—negative or positive. The plane is huge, but one powerful concept shrinks it all down: the distance from the origin (a.k.a. the vector length).
+      </p>
+      <p>
+        If you pick a point (x, y), the distance <code>r</code> from the origin (0,0) is 
+        <code>r = √(x² + y²)</code>. This <code>r</code> is like the “hypotenuse” of a right triangle whose sides are the <code>x</code> (horizontal distance) and <code>y</code> (vertical distance).
+      </p>
+      <p>
+        We can imagine all points that lie exactly 1 unit away from the origin forming the unit circle. Hence <code>(x,y)</code> would satisfy <code>x² + y² = 1</code>.
+      </p>
+
+      <!-- Interactive Applet 1 -->
+      <div class="applet-container">
+        <canvas id="applet1" width="400" height="300"></canvas>
+        <div class="controls">
+          <label for="slider1">Move the point around:</label>
+          <input type="range" id="slider1" min="0" max="359" value="45" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Ratios Instead of Absolute Distances -->
+    <section id="section2">
+      <h2>2. Ratios Instead of Absolute Distances</h2>
+      <p>
+        Because the plane is infinite, measuring absolute distances can get unwieldy. Instead, we focus on ratios that stay the same when we scale a shape up or down. For angles, these ratios become:
+      </p>
+      <ul>
+        <li>
+          <strong>cos(a)</strong>: A ratio representing how far horizontally the point is from the center, relative to the overall distance <code>r</code>.
+        </li>
+        <li>
+          <strong>sin(a)</strong>: A ratio representing how far vertically the point is, again relative to <code>r</code>.
+        </li>
+      </ul>
+      <div class="info-box">
+        If your point <code>(x, y)</code> is on the unit circle (where <code>r = 1</code>), then:
+        <p><code>x = cos(a)</code>, <code>y = sin(a)</code>.</p>
+      </div>
+      <p>
+        In other words, for an angle <code>a</code> measured from the positive x-axis, <code>(cos(a), sin(a))</code> are the coordinates on that circle.
+      </p>
+
+      <!-- Interactive Applet 2 -->
+      <div class="applet-container">
+        <canvas id="applet2" width="400" height="300"></canvas>
+        <div class="controls"></div>
+          <label for="slider2">Select an angle (degrees):</label>
+          <input type="range" id="slider2" min="0" max="359" value="30" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: The Famous Identity sin²(a) + cos²(a) = 1 -->
+    <section id="section3">
+      <h2>3. The Famous Identity <code>sin²(a) + cos²(a) = 1</code></h2>
+      <p>
+        Why does <code>sin²(a) + cos²(a) = 1</code> hold?
+      </p>
+      <div class="info-box">
+        <p>On the unit circle, every point satisfies <code>x² + y² = 1</code>.</p>
+      </div>
+      <div class="info-box">
+        <p>Because <code>x = cos(a)</code> and <code>y = sin(a)</code>, we get <code>cos²(a) + sin²(a) = 1</code>.</p>
+      </div>
+      <p>
+        This isn’t just an arbitrary rule—it’s a basic fact about how circles and coordinates work. 
+        You’ve basically taken the Pythagorean theorem and applied it to coordinates <code>(cos(a), sin(a))</code> on a circle of radius 1.
+      </p>
+
+      <!-- Interactive Applet 3 -->
+      <div class="applet-container">
+        <canvas id="applet3" width="400" height="380"></canvas>
+        <div class="controls">
+          <p>
+            Move the angle slider to see <code>sin²(a) + cos²(a)</code> in action. Watch the length
+            of the vector remain 1 on the circle.
+          </p>
+          <label for="slider3" style="display: block; text-align: center;">Angle:</label>
+          <input type="range" id="slider3" min="0" max="359" value="60" style="display: block; margin: 0 auto;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Introducing tan, sec, cot, csc -->
+    <section id="section4">
+      <h2>4. Introducing <code>tan</code>, <code>sec</code>, <code>cot</code>, <code>csc</code></h2>
+      <p>
+        We can also define other helpful ratios to avoid juggling <code>x</code>, <code>y</code>, and <code>r</code> all the time:
+      </p>
+      <div class="info-box">
+        <strong>tan(a)</strong> = <code>sin(a) / cos(a)</code> 
+      </div>
+      <div class="info-box">
+        <strong>sec(a)</strong> = <code>1 / cos(a)</code>
+      </div>
+      <div class="info-box">
+        <strong>cot(a)</strong> = <code>1 / tan(a)</code> = <code>cos(a) / sin(a)</code>
+      </div>
+      <div class="info-box">
+        <strong>csc(a)</strong> = <code>1 / sin(a)</code>
+      </div>
+      <p>
+        These might look like new functions, but really, they’re just shorthand for different ways of combining <code>sin(a)</code> and <code>cos(a)</code>. They help in certain equations where you’ve already calculated a <code>tan(a)</code> and need another ratio quickly—without going back and forth between <code>sin</code> and <code>cos</code>.
+      </p>
+
+      <!-- Interactive Applet 4 -->
+      <div class="applet-container">
+        <canvas id="applet4" width="400" height="300"></canvas>
+        <div class="controls">
+          <label for="slider4">Angle:</label>
+          <input type="range" id="slider4" min="0" max="359" value="45" />
+        </div>
+      </div>
+    </section>
+
+    <section id="section5">
+      <h2>5. Dividing by <code>cos²(a)</code> to Get More Identities</h2>
+      <p>
+        If you take the fundamental identity 
+        <code>sin²(a) + cos²(a) = 1</code> 
+        and divide every term by 
+        <code>cos²(a)</code>, you arrive at 
+        <code>tan²(a) + 1 = sec²(a)</code>.
+      </p>
+    
+      <!-- Step 1 -->
+      <div class="info-box">
+        <p><strong>Step 1:</strong> Divide each term by <code>cos²(a)</code>:</p>
+        <p><code>sin²(a)/cos²(a) + cos²(a)/cos²(a) = 1/cos²(a)</code></p>
+      </div>
+    
+      <!-- Step 2 -->
+      <div class="info-box">
+        <p><strong>Step 2:</strong> From our definitions 
+          <code>tan(a) = sin(a)/cos(a)</code> and 
+          <code>sec(a) = 1/cos(a)</code>, it follows that</p>
+        <ul>
+          <li><code>sin²(a)/cos²(a) = tan²(a)</code></li>
+          <li><code>1/cos²(a) = sec²(a)</code></li>
+          <li><code>cos²(a)/cos²(a) = 1</code></li>
+        </ul>
+      </div>
+    
+      <!-- Step 3 -->
+      <div class="info-box">
+        <p><strong>Step 3:</strong> Substitute these into the equation and simplify:</p>
+        <p><code>tan²(a) + 1 = sec²(a)</code></p>
+      </div>
+    
+      <!-- Step 4 -->
+      <div class="info-box">
+        <p><strong>Step 4: Make <code>sec(a)</code> the LHS</strong></p>
+        <p>
+          Since <code>tan²(a) + 1 = sec²(a)</code>, take the square root of both sides 
+          (noting any sign considerations depending on the quadrant of <em>a</em>):
+        </p>
+        <p><code>sec(a) = ±√(tan²(a) + 1)</code></p>
+        <p>
+          Typically, if <code>cos(a)</code> is positive (e.g., in the first or fourth quadrant),
+          we choose the positive root. Either way, now you have an expression for 
+          <code>sec(a)</code> in terms of <code>tan(a)</code>.
+        </p>
+      </div>
+    
+      <p>
+        <em>Why do this?</em> In some problems, it’s easier to work with <code>tan(a)</code> 
+        and <code>sec(a)</code> than to track <code>sin(a)</code> and <code>cos(a)</code> 
+        individually. By rewriting the identity in these terms, we get a direct formula 
+        linking <code>tan</code> and <code>sec</code> without needing <code>sin</code> or 
+        <code>cos</code> explicitly.
+      </p>
+      <p>
+        Similarly, dividing by <code>sin²(a)</code> yields 
+        <code>1 + cot²(a) = csc²(a)</code>. It’s just a rearrangement to let us use 
+        <em>cotangent</em> and <em>cosecant</em> instead of <em>sine</em> and <em>cosine</em>.
+      </p>
+      <p>Observe the values below to see that the functions are just different representations of the same values - each driven only by the input angle!</p>
+      <!-- Interactive Applet 5 -->
+      <div class="applet-container">
+        <canvas id="applet5" width="400" height="300"></canvas>
+        <div class="controls">
+          <label for="slider5">Angle:</label>
+          <input type="range" id="slider5" min="0" max="359" value="10" />
+        </div>
+      </div>
+    </section>
+    
+
+      
+  
+
+    <!-- Section 6: Conclusion -->
+    <section id="section6">
+      <h2>6. Putting the intuition together</h2>
+      <ol>
+        <li>
+          <strong>Points and Angles:</strong> We start with a point <code>(x, y)</code> on a plane at some distance <code>r</code> from the origin.
+        </li>
+        <li>
+          <strong>Ratios:</strong> Define <code>cos(a) = x / r</code> and <code>sin(a) = y / r</code> so we can keep track of horizontal and vertical proportions.
+        </li>
+        <li>
+          <strong>The Unit Circle:</strong> If <code>r = 1</code>, then <code>x² + y² = 1</code> leads straight to <code>sin²(a) + cos²(a) = 1</code>.
+        </li>
+        <li>
+          <strong>Extra Tools:</strong> <code>tan</code>, <code>sec</code>, <code>cot</code>, <code>csc</code> are simply convenient ratios or reciprocals to help solve more complex equations without juggling all sides of the triangle (or all coordinates).
+        </li>
+        <li>
+          <strong>Derived Identities:</strong> We can divide the core identity by <code>sin²(a)</code> or <code>cos²(a)</code> to rewrite the equation in terms of <code>tan</code> and <code>sec</code>, or <code>cot</code> and <code>csc</code>.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Section 7: Example: Finding sec(a) from tan(a) -->
+    <section id="section7">
+      <h2>7. Example: Finding <code>sec(a)</code> from <code>tan(a)</code></h2>
+      <p>
+      Suppose you already know that <code>tan(a) = 2</code>. You might want to figure out <code>sec(a)</code> without going back to <code>sin(a)</code> and <code>cos(a)</code>:
+      </p>
+      <p>
+      Start with <code>tan²(a) + 1 = sec²(a)</code>.
+      </p>
+      <p>
+      Plug in <code>tan(a) = 2</code>, so <code>tan²(a) = 4</code>.
+      </p>
+      <p>
+      Then <code>4 + 1 = 5 = sec²(a)</code>.
+      </p>
+      <p>
+      Thus <code>sec(a) = √5</code>.
+      </p>
+      <p>
+      All you needed was <code>tan²(a) + 1 = sec²(a)</code> to jump straight to <code>sec(a) = √5</code>.
+      </p>
+    </section>
+
+    <!-- Section 8: Final Thoughts -->
+    <section id="section8" style="background-color: #e0f7e0; padding: 20px; border-radius: 10px;">
+      <h2>8. Final Thoughts</h2>
+      <p>
+      Trigonometry is not just a set of triangle formulas to memorize—it’s a geometry of rotating points on a plane.
+      <strong>sin</strong> and <strong>cos</strong> measure the x and y coordinates of a point on the unit circle.
+      </p>
+      <p>
+      <code>sin²(a) + cos²(a) = 1</code> is simply the statement that <code>(cos(a), sin(a))</code> lies on that circle.
+      </p>
+      <p>
+      <strong>tan</strong>, <strong>sec</strong>, <strong>cot</strong>, and <strong>csc</strong> are extra “tools” that come from mixing and matching <strong>sin</strong> and <strong>cos</strong>. They become crucial in more advanced math and real-world applications where different side ratios are more convenient.
+      </p>
+    </section>
+
+  </main>
+
+
+
+
+  <footer class="footer">
+    <p>&copy; 2025 Bryn Davies</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
